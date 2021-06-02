@@ -1,5 +1,5 @@
-const { ObjectID } = require('bson');
 const mongoose = require('mongoose');
+const manager =require('./employee').employeeschema
 const Schema = mongoose.Schema;
 
 const School = Schema({
@@ -16,17 +16,15 @@ const School = Schema({
         required: true
     },
     managerId :{
-        type: ObjectID,
+        type: mongoose.Schema.ObjectId,
+        ref: 'employee_model',
         required: true
     },
-    PHONENUMBER :{
+    phone_number :{
         type: Number,
         required: true
-    },
-    created_Date :{
-        type: Date,
-        required: true
-    },
-})
+    }
+}, { timestamps: true })
 const Schoolmode = mongoose.model('School', School);
-module.exports = Schoolmode;
+exports.Schoolmode = Schoolmode
+exports.Schoolschema = School;

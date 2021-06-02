@@ -1,26 +1,24 @@
-const { ObjectID } = require('bson');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-
-const Class = Schema({
-    
-    className :{
+// add classes
+var calasses = ['الاول','الثاني','الثالث','الرابع','الخامس','السادس','السابع','الثامن','التاسع','العاشر','الحادي عشر','الثاني عشر']
+const Classschema = Schema({
+    room :{
         type: String,
         required: true
     },
-    classNumber :{
-        type: Number,
+    branch :{
+        type: String,
+    },
+    grade :{
+        type: String,
         required: true
     },
-    levelId :{
-        type: ObjectID,
-        required: true
-    },
-    teacherId :{
-        type: ObjectID,
-        required: true
-    },
-   
-})
-const Class_model = mongoose.model('Class_model', Class);
-module.exports = Class_model;
+    stage : {
+        type: String,
+    }
+}, { timestamps: true })
+const Class_model = mongoose.model('Class_model', Classschema);
+exports.Class_model = Class_model
+exports.Classschema = Classschema;
+exports.calasses =calasses
