@@ -1,5 +1,5 @@
-const { ObjectID } = require('bson');
 const mongoose = require('mongoose');
+const role = require('./role').roleschema
 const Schema = mongoose.Schema;
 
 const employee = Schema({
@@ -14,11 +14,11 @@ const employee = Schema({
     },
     full_name_en :{
         type: String,
-        required: true
+       
     },
-    role_Id :{
-        type: ObjectID,
-        required: true
+    role :{
+        type: role,
+     
     },
     job_Number :{
         type: Number,
@@ -52,4 +52,5 @@ const employee = Schema({
    
 })
 const employee_model = mongoose.model('employee_model', employee);
-module.exports = employee_model;
+exports.employee_model = employee_model
+exports.employeeschema = employee

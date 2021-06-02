@@ -6,6 +6,7 @@ const role = Schema({
 
     name: {
         type: String,
+        unique: [true, 'Role Already exist'],
         required: true
     },
     permissions_id: {
@@ -15,4 +16,5 @@ const role = Schema({
 
 })
 const role_model = mongoose.model('role_model', role);
-module.exports = role_model;
+exports.role_model = role_model
+exports.roleschema = role;

@@ -1,5 +1,8 @@
 const { ObjectID } = require('bson');
 const mongoose = require('mongoose');
+const teacher =require('./employee').employeeschema
+const section = require('./section').Sectionschema
+
 const Schema = mongoose.Schema;
 
 const Section_tutorial = Schema({
@@ -9,11 +12,11 @@ const Section_tutorial = Schema({
         required: true
     },
     teacherId :{
-        type: ObjectID,
+        type: teacher,
         required: true
     },
     sectionId :{
-        type: ObjectID,
+        type: section,
         required: true
     },
     created_Date :{
@@ -22,4 +25,5 @@ const Section_tutorial = Schema({
     },
 })
 const Section_tutorial_model = mongoose.model('Section_tutorial_model', Section_tutorial);
-module.exports = Section_tutorial_model;
+exports.Section_tutorial_model = Section_tutorial_model
+exports.Section_tutorial = Section_tutorial;
